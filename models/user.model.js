@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const {isEmail} = require('validator')
+const bcrypt = require('bcrypt')
 const userSchema = mongoose.Schema(
     {
         username : 
@@ -25,4 +26,20 @@ const userSchema = mongoose.Schema(
     {
         timestamps: true
     })
+
+    userSchema.pre("save", async function(next){
+        if(!this.isModified("password"))
+        {
+            return next()
+        }
+        this.password = await bcrypt.hash(this.password, 10)
+        next()
+
+    });
+
+    userSchema.methods.isPasswordCorrect = async function()
+    {
+        return await bcrypt.compare(password, this.password)
+    }
+    
     module.exports = mongoose.model('User', userSchema)
