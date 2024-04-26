@@ -8,7 +8,7 @@ module.exports.addBook = async (req,res)=> {
     {
         throw new Error("Book cannot be added now!")
     }
-    res.status(201).json({msg: "Book added successfully", data : book})
+   return res.status(201).json({msg: "Book added successfully", data : book})
 
 }
 
@@ -17,14 +17,14 @@ module.exports.viewAllBooks = async (req,res)=> {
      const books = await Book.find({})
      if(!books)
      throw new Error("Cannot fetch all books at the moment!")
-     res.status(200).json(books)
+    return res.status(200).json(books)
 
 }
 module.exports.deleteBookWithId = async (req,res)=> {
 
      const bookId = req.params.id
      const deletedBook = await Book.findByIdAndDelete(bookId)
-     res.status(200).json({msg: " book deletion successfull", Book : deletedBook})
+    return res.status(200).json({msg: " book deletion successfull", Book : deletedBook})
 
 }
 module.exports.updateBookWihId = async (req,res)=> {
@@ -42,7 +42,7 @@ module.exports.updateBookWihId = async (req,res)=> {
             })
     if(!updatedBook)
     throw new Error("Error occured while updating book")
-     res.status(200).json({msg: "Book details updated", updated_details : updatedBook})
+    return res.status(200).json({msg: "Book details updated", updated_details : updatedBook})
 }
 
 module.exports.filterByAuthorOrYear = async (req,res)=>
@@ -58,10 +58,9 @@ module.exports.filterByAuthorOrYear = async (req,res)=>
 
     const filteredResult = await Book.find(filter);
     if(filteredResult.length === 0)
-    {
-        res.status(400).json({msg:"No books found "})
+    
+    return res.status(400).json({msg:"No books found "})
 
-    }
-    else
-    res.status(200).json(filteredResult)
+    
+   return res.status(200).json(filteredResult)
 }

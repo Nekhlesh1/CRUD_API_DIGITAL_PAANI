@@ -5,7 +5,7 @@ const generateToken = async(userId) =>{ try {
     
         const user = await User.findById(userId)
         const accessToken = await user.generateAccessToken()
-        console.log(accessToken)
+        // console.log(accessToken)
         return accessToken
     
     }
@@ -22,14 +22,14 @@ module.exports.addUser = async (req, res) => {
     if (
         !username || !email || !password
     ) {
-        res.status(400).json("All fields are required")
+       return res.status(400).json("All fields are required")
     }
 
     // check if user already exists
 
     const existedUser = await User.findOne({email})
     if (existedUser) {
-        throw new Error("User already exists with the given username/ Email")
+        return res.status(400).json("User already exists with the given username/ Email")
     }
     // console.log(req.files);
     
@@ -56,13 +56,13 @@ module.exports.loginUser = async(req,res) =>
 
     const user = await User.findOne({email})
     if (!user) {
-        throw new Error("No user with given name/ email. Register first!")
+       return res.status(404).json({data: "No user with given name/ email. Register first!"})
     }
 
     // check password
     const isPasswordValid = await user.isPasswordCorrect(password)
     if (!isPasswordValid) {
-        throw new Error("Incorrect password");
+      return  res.status(401).json("Incorrect password");
     }
 
     const accessToken = await generateToken(user._id)
