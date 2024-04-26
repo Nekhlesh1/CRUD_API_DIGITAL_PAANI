@@ -3,10 +3,10 @@ const { addBook, viewAllBooks, updateBookWihId, deleteBookWithId, filterByAuthor
 const { verifyJWT } = require('../middlewares/authentication.middleware')
 const router = express.Router()
 
-router.post('/add', addBook)
+router.post('/add',verifyJWT, addBook)
 router.get('/viewBooks',verifyJWT, viewAllBooks)
 router.get('/filter',filterByAuthorOrYear)
-router.put('/updateBook/:id', updateBookWihId)
-router.delete('/delete/:id', deleteBookWithId)
+router.put('/updateBook/:id',verifyJWT, updateBookWihId)
+router.delete('/delete/:id',verifyJWT, deleteBookWithId)
 
 module.exports = router 
