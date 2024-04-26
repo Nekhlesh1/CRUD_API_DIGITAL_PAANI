@@ -5,7 +5,7 @@ such as adding, viewing, filtering, updating, and deleting books.
 # Authentication
 Authentication is required for certain endpoints. Users must provide a valid JWT token obtained through the login endpoint.
 
-# Dependemcies Used
+# Dependencies Used
 
    1. **bcrypt**: Library for hashing passwords securely using bcrypt hashing algorithm.
    2. **cookie-parser**: Middleware for parsing cookies in Express.js applications.
