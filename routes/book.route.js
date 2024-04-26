@@ -5,6 +5,6 @@ const router = express.Router()
 router.post('/add', addBook)
 router.get('/viewBooks', viewAllBooks)
 router.post('/updateBook', updateBookWihId)
-router.delete('/delete', deleteBookWithId)
+router.delete('/delete/:id', deleteBookWithId)
 
 module.exports = router 

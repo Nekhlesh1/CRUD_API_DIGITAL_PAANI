@@ -22,6 +22,10 @@ module.exports.viewAllBooks = async (req,res)=> {
 }
 module.exports.deleteBookWithId = async (req,res)=> {
 
+     const bookId = req.params.id
+     const deletedBook = await Book.findByIdAndDelete(bookId)
+     res.status(200).json({msg: " book deletion successfull", Book : deletedBook})
+
 }
 module.exports.updateBookWihId = async (req,res)=> {
 
