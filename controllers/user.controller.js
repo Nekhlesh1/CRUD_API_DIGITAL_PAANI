@@ -5,6 +5,7 @@ const generateToken = async(userId) =>{ try {
     
         const user = await User.findById(userId)
         const accessToken = await user.generateAccessToken()
+        console.log(accessToken)
         return accessToken
     
     }
@@ -21,7 +22,7 @@ module.exports.addUser = async (req, res) => {
     if (
         !username || !email || !password
     ) {
-        throw new Error("All fields are required! ")
+        res.status(400).json("All fields are required")
     }
 
     // check if user already exists
@@ -37,7 +38,7 @@ module.exports.addUser = async (req, res) => {
         {
             email,
             password,
-            username: username.toLowerCase()
+            username: username?.toLowerCase()
         })
     const createdUser = await User.findById(user._id)
     

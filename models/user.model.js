@@ -47,7 +47,7 @@ const userSchema = mongoose.Schema(
 
     userSchema.methods.generateAccessToken = async function()
     {
-        jwt.sign({
+        return jwt.sign({
             _id : this._id,
             username : this.username,
             password : this.password

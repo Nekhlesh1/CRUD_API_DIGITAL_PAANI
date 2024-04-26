@@ -44,3 +44,24 @@ module.exports.updateBookWihId = async (req,res)=> {
     throw new Error("Error occured while updating book")
      res.status(200).json({msg: "Book details updated", updated_details : updatedBook})
 }
+
+module.exports.filterByAuthorOrYear = async (req,res)=>
+{
+    const {author, year} = req.query
+    const filter = {}
+
+    if(author)
+    filter.author = author
+
+    if(year)
+    filter.year = year
+
+    const filteredResult = await Book.find(filter);
+    if(filteredResult.length === 0)
+    {
+        res.status(400).json({msg:"No books found "})
+
+    }
+    else
+    res.status(200).json(filteredResult)
+}
