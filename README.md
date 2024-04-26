@@ -20,10 +20,10 @@ Authentication is required for certain endpoints. Users must provide a valid JWT
 # Endpoints
   
   **Add Book**
-     * URL: api/books/add
-     * Method: POST
-     * Description: Adds a new book to the database.
-     * Request Body:
+     * URL: api/books/add  
+     * Method: POST  
+     * Description: Adds a new book to the database. \n
+     * Request Body: \n 
        title (string, required): Title of the book.
        author (string, required): Author of the book.
        year (number, required): Publication year of the book.
