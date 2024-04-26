@@ -17,7 +17,7 @@ const bookSchema = mongoose.Schema(
         year :
         {
             required : true,
-            type : Date,
+            type : String,
         }, 
         pages: 
         {
