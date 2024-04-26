@@ -7,14 +7,14 @@ Authentication is required for certain endpoints. Users must provide a valid JWT
 
 # Dependemcies Used
 
-   1: **bcrypt**. Library for hashing passwords securely using bcrypt hashing algorithm.
-   2: **cookie-parser**. Middleware for parsing cookies in Express.js applications.
-   3: **dotenv**: Utility for loading environment variables from a .env file into Node.js applications.
-   4: **express**: Web framework for building Node.js applications, providing features for routing, middleware, and more.
-   5: **jsonwebtoken**: Library for generating and verifying JSON Web Tokens (JWT) used for authentication and authorization.
-   6: **mongoose**: Object Data Modeling (ODM) library for MongoDB, providing a higher-level abstraction for interacting with MongoDB databases.
-   7: **nodemon**: Utility that monitors changes in your Node.js application files and automatically restarts the server.
-   8: **validator**: Library for data validation in JavaScript, providing functions for validating various data types such as strings, numbers, emails, and URLs.
+   1. **bcrypt**: Library for hashing passwords securely using bcrypt hashing algorithm.
+   2. **cookie-parser**: Middleware for parsing cookies in Express.js applications.
+   3. **dotenv**: Utility for loading environment variables from a .env file into Node.js applications.
+   4. **express**: Web framework for building Node.js applications, providing features for routing, middleware, and more.
+   5. **jsonwebtoken**: Library for generating and verifying JSON Web Tokens (JWT) used for authentication and authorization.
+   6. **mongoose**: Object Data Modeling (ODM) library for MongoDB, providing a higher-level abstraction for interacting with MongoDB databases.
+   7. **nodemon**: Utility that monitors changes in your Node.js application files and automatically restarts the server.
+   8. **validator**: Library for data validation in JavaScript, providing functions for validating various data types such as strings, numbers, emails, and URLs.
 
 
 # Endpoints
