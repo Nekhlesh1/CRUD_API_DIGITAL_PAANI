@@ -22,12 +22,12 @@ Authentication is required for certain endpoints. Users must provide a valid JWT
   **Add Book**
      **URL** : api/books/add  
      **Method**: POST  
-     **Description**: Adds a new book to the database. 
+     **Description**: Adds a new book to the database.   
      **Request Body**:  
-       title (string, required): Title of the book.
-       author (string, required): Author of the book.
-       year (number, required): Publication year of the book.
-       pages (number, required): Number of pages in the book.
+          title (string, required): Title of the book.     
+          author (string, required): Author of the book.      
+          year (number, required): Publication year of the book.     
+          pages (number, required): Number of pages in the book.       
     **Authentication**: Required
     **Sample Request**:
 
@@ -49,72 +49,74 @@ Authentication is required for certain endpoints. Users must provide a valid JWT
       }
 
 **View All Books**
-    URL: api/books/viewBooks
-    Method: GET
-    Description: Retrieves all books from the database.
-    Authentication: Required
-    Filter Books
-    URL: /filter
-    Method: GET
-    Description: Filters books by author or publication year.
-    Query Parameters:
-      author (string, optional): Author name to filter by.
-      year (number, optional): Publication year to filter by.
-    Authentication: Required
+    **URL**: api/books/viewBooks   
+    **Method**: GET  
+    **Description**: Retrieves all books from the database.
+    **Authentication**: Required  
+    
+    
+**Filter Books**  
+    **URL**: /filter  
+    **Method**: GET  
+    **Description**: Filters books by author or publication year.   
+    **Query Parameters:**  
+      author (string, optional): Author name to filter by.  
+      year (number, optional): Publication year to filter by.  
+    **Authentication**: Required   
 
 **Update Book by ID**
-    URL: api/books/updateBook/:id
-    Method: PUT
-    Description: Updates a book with the specified ID.
-    Path Parameters:
-    id (string, required): ID of the book to update.
-    Request Body:
-        title (string, optional): New title of the book.
-        author (string, optional): New author of the book.
-        year (number, optional): New publication year of the book.
-        pages (number, optional): New number of pages in the book.
-    Authentication: Required
+    **URL**: api/books/updateBook/:id  
+    **Method**: PUT  
+    **Description**: Updates a book with the specified ID.  
+    **Path Parameters**:  
+    id (string, required): ID of the book to update.  
+    **Request Body**:  
+        title (string, optional): New title of the book.  
+        author (string, optional): New author of the book.  
+        year (number, optional): New publication year of the book.  
+        pages (number, optional): New number of pages in the book.  
+    **Authentication**: Required  
 
 
 **Delete Book by ID**
-    URL: api/books/delete/:id
-    Method: DELETE
-    Description: Deletes a book with the specified ID.
-    Path Parameters:
-      id (string, required): ID of the book to delete.
-    Authentication: Required
+    **URL**: api/books/delete/:id  
+    **Method**: DELETE  
+    **Description**: Deletes a book with the specified ID.  
+    **Path Parameters**:  
+      id (string, required): ID of the book to delete.  
+    **Authentication**: Required  
 
 
 **Add User**
-    URL: api/users/addUser
-    Method: POST
-    Description: Registers a new user.
-    Request Body:
-    username (string, required): Username of the user.
-    password (string, required): Password of the user.
-    Sample Request:
+    **URL**: api/users/addUser  
+    **Method**: POST  
+    **Description**: Registers a new user.  
+    **Request Body**:  
+    username (string, required): Username of the user.   
+    password (string, required): Password of the user.  
+    **Sample Request**:  
               {
                 "username": "john_doe",
                 "password": "examplepassword"
               }
-    Authentication: Not Required
+    **Authentication**: Not Required  
 
 **Login User**
-    URL: api/users/login
-    Method: POST
-    Description: Authenticates a user and returns a JWT token.
-    Request Body:
-    username (string, required): Username of the user.
-    password (string, required): Password of the user.
-    Sample Request:
+    **URL**: api/users/login  
+    **Method**: POST  
+    **Description**: Authenticates a user and returns a JWT token.  
+    **Request Body**:  
+    username (string, required): Username of the user.   
+    password (string, required): Password of the user.  
+    **Sample Request**:  
 
               {
                 "username": "john_doe",
                 "password": "examplepassword"
               }
-    Sample Response:
+    **Sample Response**:  
 
               {
                 "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
               }
-    Authentication: Not Required
+    **Authentication**: Not Required  
