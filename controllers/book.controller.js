@@ -28,5 +28,19 @@ module.exports.deleteBookWithId = async (req,res)=> {
 
 }
 module.exports.updateBookWihId = async (req,res)=> {
-
+    const bookId = req.params.id
+    const {title, year, author, pages} = req.body
+    const updatedBook  = await Book.findByIdAndUpdate(bookId, 
+        {
+            title, 
+            year, 
+            author, 
+            pages
+        }, 
+            {
+                new: true
+            })
+    if(!updatedBook)
+    throw new Error("Error occured while updating book")
+     res.status(200).json({msg: "Book details updated", updated_details : updatedBook})
 }
